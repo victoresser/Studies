@@ -15,31 +15,31 @@ class application(tk.Frame):
 
 
         # Campo "Nome"
-        self.name_label = tk.Label(self)
+        self.name_label = tk.Label(self, font=("Arial", 11))
         self.name_label["text"] = "Nome:"
         self.name_label.pack(side="left")
 
-        self.name_entry = tk.Entry(self)
+        self.name_entry = tk.Entry(self, font=("Arial", 8))
         self.name_entry.pack(side="left")
 
         # Campo "Sobrenome"
-        self.lastname_label = tk.Label(self)
+        self.lastname_label = tk.Label(self, font=("Arial", 11))
         self.lastname_label["text"] = "Sobrenome:"
         self.lastname_label.pack(side="left")
 
-        self.lastname_entry = tk.Entry(self)
+        self.lastname_entry = tk.Entry(self, font=("Arial", 8))
         self.lastname_entry.pack(side="left")
         
         # Campo "E-mail"
-        self.email_label = tk.Label(self)
+        self.email_label = tk.Label(self, font=("Arial", 11))
         self.email_label["text"] = "E-mail:"
         self.email_label.pack(side="left")
 
-        self.email_entry = tk.Entry(self)
+        self.email_entry = tk.Entry(self, font=("Arial", 8))
         self.email_entry.pack(side="left")
 
         # Botão "Enviar"
-        self.submit_button = tk.Button(self)
+        self.submit_button = tk.Button(self, font=("Arial", 14))
         self.submit_button["text"] = "Enviar"
         self.submit_button["command"] = self.submit
         self.submit_button.pack(side="bottom")
