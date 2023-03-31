@@ -7,11 +7,11 @@ class application(tk.Frame):
         self.master = master
         self.pack()
         self.create_widgets()
-        style = ThemedStyle(self.master)
-        style.set_theme("radiance")
+    
 
     # Criando campos para serem preenchidos
     def create_widgets(self):
+        """ Campos de preenchimento do formulário """
         style = ThemedStyle(self.master)
         style.set_theme("radiance")
 
@@ -19,40 +19,40 @@ class application(tk.Frame):
         # Campo "Nome"
         self.name_label = tk.Label(self, font=("Arial", 11))
         self.name_label["text"] = "Nome:"
-        self.name_label.pack(side="left")
+        self.name_label.pack(side="top")
 
         self.name_entry = tk.Entry(self, font=("Arial", 8))
-        self.name_entry.pack(side="left")
+        self.name_entry.pack(side="top")
 
         # Campo "Sobrenome"
         self.lastname_label = tk.Label(self, font=("Arial", 11))
         self.lastname_label["text"] = "Sobrenome:"
-        self.lastname_label.pack(side="left")
+        self.lastname_label.pack(side="top")
 
         self.lastname_entry = tk.Entry(self, font=("Arial", 8))
-        self.lastname_entry.pack(side="left")
+        self.lastname_entry.pack(side="top")
         
         # Campo "E-mail"
         self.email_label = tk.Label(self, font=("Arial", 11))
         self.email_label["text"] = "E-mail:"
-        self.email_label.pack(side="left")
+        self.email_label.pack(side="top")
 
         self.email_entry = tk.Entry(self, font=("Arial", 8))
-        self.email_entry.pack(side="left")
+        self.email_entry.pack(side="top")
 
         # Botão "Enviar"
         self.submit_button = tk.Button(self, font=("Arial", 14))
         self.submit_button["text"] = "Enviar"
         self.submit_button["command"] = self.submit
-        self.submit_button.pack(side="bottom")
+        self.submit_button.pack(side="left")
     
     # Funções do botão "Enviar"
     def submit(self):
         
         """Funções do botão "Enviar". Quando o usuário clicar no botão
         será enviado para o servidor e também será aberta uma nova janela
-        que retornara uma viagem para o usuário informando que as informações foram
-        enviadas com sucesso."""
+        que retornara uma viagem para o usuário informando que as informações 
+        foram enviadas com sucesso."""
 
         name = self.name_entry.get()
         lastname = self.lastname_entry.get()
