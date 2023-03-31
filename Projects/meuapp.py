@@ -1,5 +1,24 @@
 import tkinter as tk
 from ttkthemes import ThemedStyle
+import mysql.connector as conn
+from flask import Flask, request
+
+# Define a conexão com o banco de dados MySQL
+db = conn.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="teste"
+)
+# Verificando se foi possível realizar a conexão com o banco de dados
+if db.is_connected():
+    print("Conexão com o banco de dados realizada com sucesso!")
+else:
+    print("Houve algum erro com a conexão com o banco de dados\nVerifique as credênciais de acesso ao banco de dados.")
+
+sql = "INSERT INTO cadastros (nome , sobrenome, email) VALUES (%s, %s, %s)"
+
+flask = Flask(__name__)
 
 class application(tk.Frame):
     def __init__(self, master=None):
@@ -7,8 +26,7 @@ class application(tk.Frame):
         self.master = master
         self.pack()
         self.create_widgets()
-    
-
+        
     # Criando campos para serem preenchidos
     def create_widgets(self):
         """ Campos de preenchimento do formulário """
@@ -44,7 +62,7 @@ class application(tk.Frame):
         self.submit_button = tk.Button(self, font=("Arial", 14))
         self.submit_button["text"] = "Enviar"
         self.submit_button["command"] = self.submit
-        self.submit_button.pack(side="left")
+        self.submit_button.pack(side="right")
     
     # Funções do botão "Enviar"
     def submit(self):
@@ -62,6 +80,22 @@ class application(tk.Frame):
         print("Sobrenome:", lastname)
         print("E-mail:", email)
 
+        cursor = db.cursor()
+        cursor.execute(sql,(name, lastname, email))
+        db.commit()
+        # if db.commit() is True:
+        #     dbWindow = tk.Toplevel(self.master)
+        #     dbMsg = tk.Label(dbWindow, text="Dados inseridos com sucesso!")
+        #     dbMsg.pack()
+        # else:
+        #     dbWindowError = tk.Toplevel(self.master)
+        #     dbError = tk.Label(dbWindowError, text="Houve algum problema com a inserção das informações no banco de dados!")
+        #     dbError.pack()
+        #     self.name_entry.delete(0, tk.END)
+        #     self.lastname_entry.delete(0, tk.END)
+        #     self.email_entry.delete(0, tk.END)
+
+
         # Cria uma nova janela
         success_window = tk.Toplevel(self.master)
 
@@ -73,6 +107,7 @@ class application(tk.Frame):
         self.name_entry.delete(0, tk.END)
         self.lastname_entry.delete(0, tk.END)
         self.email_entry.delete(0, tk.END)
+
 
 root = tk.Tk()
 app = application(master=root)
