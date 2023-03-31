@@ -1,5 +1,5 @@
 import tkinter as tk
-from ttkthemes import ThemedStyle as ts
+from ttkthemes import ThemedStyle
 
 class application(tk.Frame):
     def __init__(self, master=None):
@@ -7,10 +7,12 @@ class application(tk.Frame):
         self.master = master
         self.pack()
         self.create_widgets()
+        style = ThemedStyle(self.master)
+        style.set_theme("radiance")
 
     # Criando campos para serem preenchidos
     def create_widgets(self):
-        style = ts(self.master)
+        style = ThemedStyle(self.master)
         style.set_theme("radiance")
 
 
@@ -64,8 +66,13 @@ class application(tk.Frame):
         success_window = tk.Toplevel(self.master)
 
         # Define a mensagem
-        message = tk.Label(success_window, text="As informações foram enviadas com sucesso!")
+        message = tk.Label(success_window, text="As informações foram enviadas com sucesso!", font=("Arial", 14))
         message.pack()
+
+        # Limpa os campos de entrada
+        self.name_entry.delete(0, tk.END)
+        self.lastname_entry.delete(0, tk.END)
+        self.email_entry.delete(0, tk.END)
 
 root = tk.Tk()
 app = application(master=root)
