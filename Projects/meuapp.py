@@ -2,20 +2,11 @@ import tkinter as tk
 from ttkthemes import ThemedStyle
 import tkinter.ttk as ttk
 import mysql.connector as conn
-from flask import Flask, request
+from flask import Flask
+from functions import conectaDb
 
-# Define a conexão com o banco de dados MySQL
-db = conn.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="teste"
-)
-# Verificando se foi possível realizar a conexão com o banco de dados
-if db.is_connected():
-    print("Conexão com o banco de dados realizada com sucesso!")
-else:
-    print("Houve algum erro com a conexão com o banco de dados\nVerifique as credênciais de acesso ao banco de dados.")
+# Realiza conexão com banco de dados conforme parâmetro informado.
+db = conectaDb("localhosty")
 
 sql = "INSERT INTO cadastros (nome , sobrenome, email) VALUES (%s, %s, %s)"
 
