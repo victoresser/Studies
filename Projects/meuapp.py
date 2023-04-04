@@ -76,7 +76,7 @@ class application(tk.Frame):
         
         """Funções do botão "Enviar". Quando o usuário clicar no botão
         será enviado para o servidor e também será aberta uma nova janela
-        que retornara uma viagem para o usuário informando que as informações 
+        que retornara uma mensagem para o usuário informando que as informações 
         foram enviadas com sucesso."""
 
         name = self.name_entry.get()
