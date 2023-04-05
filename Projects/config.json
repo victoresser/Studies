@@ -1,14 +1,14 @@
 {
-    "teste": {
-        "host": "localhost",
-        "user": "root",
-        "password": "",
-        "db": "teste"
-    },
     "localhosty": {
         "host": "localhost",
         "user": "root",
         "password": "entralogo",
         "db": "pmp_ibasi_dev"
+    },
+    "teste": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "db": "teste"
     }
 }
