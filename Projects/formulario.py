@@ -20,7 +20,7 @@ class ServiceSelection(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        services = ["Metas", "Service 2", "Service 3"]
+        services = ["Metas", "Serviço 2", "Serviço 3"]
 
         self.service_label = ttk.Label(self, text="Selecione um serviço:")
         self.service_label.pack(side="left")
