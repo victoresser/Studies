@@ -4,7 +4,7 @@ from ttkthemes import ThemedStyle
 from functions import conectaDb
 
 # Realiza conexão com banco de dados conforme parâmetro informado.
-db = conectaDb("localhosty")
+db = conectaDb("teste")
 
 sql = "INSERT INTO cadastros (nome , sobrenome, email) VALUES (%s, %s, %s)"
 
@@ -16,7 +16,6 @@ class ServiceSelection(tk.Frame):
         self.style.set_theme("radiance")
         self.master.title("Projeto Financeiro 4.5")
         self.pack()
-
         self.create_widgets()
 
     def create_widgets(self):
