@@ -16,7 +16,6 @@ class ServiceSelection(tk.Frame):
         self.style.set_theme("radiance")
         self.master.title("Projeto Financeiro 4.5")
         self.pack()
-
         self.create_widgets()
 
     def create_widgets(self):
