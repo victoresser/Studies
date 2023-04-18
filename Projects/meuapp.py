@@ -1,7 +1,8 @@
 import tkinter as tk
+import json
 from ttkthemes import ThemedStyle
 import mysql.connector as conn
-from flask import Flask, request
+from flask import Flask
 
 # Define a conexão com o banco de dados MySQL
 db = conn.connect(
@@ -10,11 +11,18 @@ db = conn.connect(
     password="",
     database="teste"
 )
-# Verificando se foi possível realizar a conexão com o banco de dados
+# Carrega as configurações do arquivo JSON
+with open('config.json') as f:
+    config = json.load(f)
+
+# Cria uma conexão com o banco de dados MySQL
+db = conn.connect(**config)
+
+# Verifica se foi possível realizar a conexão com o banco de dados
 if db.is_connected():
     print("Conexão com o banco de dados realizada com sucesso!")
 else:
-    print("Houve algum erro com a conexão com o banco de dados\nVerifique as credênciais de acesso ao banco de dados.")
+    print("Houve algum erro com a conexão com o banco de dados\\nVerifique as credênciais de acesso ao banco de dados.")
 
 sql = "INSERT INTO cadastros (nome , sobrenome, email) VALUES (%s, %s, %s)"
 
