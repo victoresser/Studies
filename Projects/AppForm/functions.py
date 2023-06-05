@@ -28,4 +28,3 @@ def conectaDb(db: str):
             print(f"Por favor, verifique se o nome do banco de dados ({db}) está corretamente escrito.\nCaso esteja escrito corretamente, verifique banco de dados.")
 
         return conexao
-        
