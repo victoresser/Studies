@@ -8,6 +8,7 @@ db = conectaDb("teste")
 
 sql = "INSERT INTO cadastros (nome , sobrenome, email) VALUES (%s, %s, %s)"
 
+
 class ServiceSelection(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -28,15 +29,17 @@ class ServiceSelection(tk.Frame):
 
     def create_service_buttons(self, services):
         for service in services:
-            button = tk.Button(self, text=service, command=lambda s=service: self.open_form(s))
+            button = tk.Button(
+                self, text=service, command=lambda s=service: self.open_form(s)
+            )
             button.pack(side="left")
 
     def open_form(self, service):
-
         if service == "Metas":
             root = tk.Tk()
             app = Application(master=root, service=service)
             app.mainloop()
+
 
 class Application(tk.Frame):
     def __init__(self, master=None, service=None):
@@ -51,7 +54,7 @@ class Application(tk.Frame):
 
     # Criando campos para serem preenchidos
     def create_widgets(self):
-        """ Campos de preenchimento do formulário """
+        """Campos de preenchimento do formulário"""
 
         # Campo "Nome"
         self.name_label = ttk.Label(self, font=("Arial", 11))
@@ -94,13 +97,12 @@ class Application(tk.Frame):
 
         # Botão "Enviar"
         self.submit_button = ttk.Button(self, text="Enviar")
-        self.submit_button.configure(style='My.TButton')
+        self.submit_button.configure(style="My.TButton")
         self.submit_button["command"] = self.submit
         self.submit_button.pack(side="right")
 
     # Funções do botão "Enviar"
     def submit(self):
-
         """Funções do botão "Enviar". Quando o usuário clicar no botão
         será enviado para o servidor e também será aberta uma nova janela
         que retornara uma viagem para o usuário informando que as informações
@@ -122,13 +124,18 @@ class Application(tk.Frame):
         success_window = tk.Toplevel(self.master)
 
         # Define a mensagem
-        message = tk.Label(success_window, text="As informações foram enviadas com sucesso!", font=("Arial", 14))
+        message = tk.Label(
+            success_window,
+            text="As informações foram enviadas com sucesso!",
+            font=("Arial", 14),
+        )
         message.pack()
 
         # Limpa os campos de entrada
         self.name_entry.delete(0, tk.END)
         self.lastname_entry.delete(0, tk.END)
         self.email_entry.delete(0, tk.END)
+
 
 root = tk.Tk()
 app = ServiceSelection(master=root)

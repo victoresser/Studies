@@ -6,7 +6,7 @@ from models.views import LoginWindow
 
 # Cria Janela principal
 root = tk.Tk()
-root.withdraw() # Esconde Janela Principal
+root.withdraw()  # Esconde Janela Principal
 
 # Janela de Login
 login = LoginWindow(master=root)

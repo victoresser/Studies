@@ -3,6 +3,7 @@ import tkinter.ttk as ttk
 from ttkthemes import ThemedStyle
 from tkinter import messagebox
 
+
 class LoginWindow(tk.Toplevel):
     def __init__(self, master):
         super().__init__(master)
@@ -16,20 +17,19 @@ class LoginWindow(tk.Toplevel):
         style.set_theme("adapta")
 
     def create_widgets(self):
-
         # Criando campos para login
         self.loginLabel = ttk.Label(self, text="Login:")
         self.loginEntry = ttk.Entry(self)
         self.passwdLabel = ttk.Label(self, text="Senha:")
         self.passwdEntry = ttk.Entry(self, show="*")
         self.loginLabel.pack(side="left")
-        self.loginEntry.pack(side="left")
+        self.loginEntry.pack(side="center")
         self.passwdLabel.pack(side="left")
-        self.passwdEntry.pack(side="left")
+        self.passwdEntry.pack(side="center")
 
         # Criando Botão para login
         self.entrarButton = ttk.Button(self, text="Entrar")
-        self.entrarButton.configure("<Return>", lambda event:self.login)
+        self.entrarButton.configure("<Return>", lambda event: self.login)
         self.entrarButton.pack(side="left")
 
     def login(self):
