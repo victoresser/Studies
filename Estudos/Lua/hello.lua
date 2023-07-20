@@ -1,7 +1,6 @@
 idadeComprador = 0
-temCompanhia =false
-temPassagem =false
-
+temCompanhia = false
+temPassagem = false
 
 print("Dando início ao processo de compra...")
 if idadeComprador >= 18 or temCompanhia == true then
